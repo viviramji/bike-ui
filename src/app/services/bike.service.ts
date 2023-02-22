@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
-  Headers: new HttpHeaders({'content-type': 'application/json'})
+  headers: new HttpHeaders({'content-type': 'application/json'})
 };
 
 @Injectable({
@@ -15,5 +15,14 @@ export class BikeService {
 
   getBikes() {
     return this.http.get('/server/api/v1/bikes');
+  }
+
+  getBike(id: number) {
+    return this.http.get(`/server/api/v1/bikes/${id}`);
+  }
+
+  createBikeRegistration(bike: any) {
+    let body = JSON.stringify(bike)
+    return this.http.post('/server/api/v1/bikes', body, httpOptions);
   }
 }
