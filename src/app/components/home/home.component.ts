@@ -12,24 +12,22 @@ export class HomeComponent {
   models: String[] = [
     'model 1', 'model 2', 'model 3'
   ];
-
-  bikeForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-    model: new FormControl('', Validators.required),
-    serialNumber: new FormControl('', Validators.required),
-    purchasePrice: new FormControl('', Validators.required),
-    purchaseDate: new FormControl('', Validators.required),
-    conact: new FormControl(),
-  });
-
+  bikeForm: FormGroup;
   validMessage: String = '';
 
   constructor(private bikeService: BikeService) { }
 
   ngOnInit() {
-    
+    this.bikeForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      model: new FormControl('', Validators.required),
+      serialNumber: new FormControl('', Validators.required),
+      purchasePrice: new FormControl('', Validators.required),
+      purchaseDate: new FormControl('', Validators.required),
+      conact: new FormControl(),
+    });
   }
 
   submitRegistration() {
